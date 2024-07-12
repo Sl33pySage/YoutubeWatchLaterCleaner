@@ -25,7 +25,7 @@ async function scrollToBottom(driver) {
     await driver.executeScript(
       "window.scrollTo(0, document.documentElement.scrollHeight);",
     );
-    await driver.sleep(3000); // Wait for the page to load
+    await driver.sleep(10000); // Wait for the page to load
 
     let newHeight = await driver.executeScript(
       "return document.documentElement.scrollHeight",
