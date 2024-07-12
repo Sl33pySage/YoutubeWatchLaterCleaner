@@ -20,9 +20,9 @@ Key Features:
 
 Challenges Overcome:
 
-    Handling dynamic content loading and pagination.
-    Ensuring reliable element interaction in a changing web environment.
-    Managing large datasets efficiently.
+    Dynamic Content Handling: Successfully managed dynamic content loading and pagination.
+    Robustness: Implemented comprehensive error handling to ensure reliability.
+    Scalability: Efficiently managed large datasets with thousands of entries.
 
 
 I wrote this script to automate the process of cleaning out my youtube 
