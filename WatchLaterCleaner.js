@@ -13,7 +13,7 @@ async function attachToSession(userDataDir) {
 // Function navigate to the "Watch Later" playlist
 async function navigateToWatchLater(driver) {
   await driver.get("https://www.youtube.com/playlist?list=WL");
-  await driver.sleep(3000); // Let the page load
+  await driver.sleep(10000); // Let the page load
 }
 
 // Function to scroll to the bottom of the page to load more videos
