@@ -1,3 +1,10 @@
-I wrote this script to automate the process of cleaning out my youtube watch later playlist but I wanted to also be able to save those videos to rewatch later in case I needed to revisit. I hope this is as useful to you as it has been for me! I welcome any advice you have.
+YouTube Watch Later Automation
 
-This script essentially uses selenium (I prefer using firefox but you can configure selenium to use whatever you like) to attach to your current browser profile as a way to "manually login" and navigates to your watch later playlist, copying the video data to a csv file and then clearing out your watch later playlist.
+Description:
+This project automates the extraction and processing of videos from a YouTube "Watch Later" playlist. It uses Selenium WebDriver to control a Firefox browser session, navigate to the playlist, scroll to load all videos, extract video details (title, URL, and uploader), and save this information to a CSV file. The script can also remove videos from the playlist after extraction.
+
+
+I wrote this script to automate the process of cleaning out my youtube 
+watch later playlist but I wanted to also be able to save those videos 
+to rewatch later in case I needed to revisit. I hope this is as useful 
+to you as it has been for me! I welcome any advice you have.
