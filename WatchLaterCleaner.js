@@ -87,7 +87,7 @@ async function removeVideosFromWatchLater(driver) {
 
     let removeButton = await driver.wait(
       until.elementLocated(
-        By.xpath('//ty-formatted-string[text()="Remove from Watch Later"]'),
+        By.xpath('//yt-formatted-string[text()="Remove from Watch Later"]'),
       ),
       5000,
     );
