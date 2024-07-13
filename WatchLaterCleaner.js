@@ -97,7 +97,7 @@ async function removeVideosFromWatchLater(driver) {
 }
 
 (async function () {
-  const userDataDir = "Replace/With/Path/To/Your?Browser/Profile";
+  const userDataDir = "Replace/With/Path/To/Your/Browser/Profile";
   let driver = await attachToSession(userDataDir);
 
   try {
