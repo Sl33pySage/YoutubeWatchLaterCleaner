@@ -13,7 +13,7 @@ async function attachToSession(userDataDir) {
 // Function navigate to the "Watch Later" playlist
 async function navigateToWatchLater(driver) {
   await driver.get("https://www.youtube.com/playlist?list=WL");
-  await driver.sleep(5000); // Let the page load
+  await driver.sleep(3000); // Let the page load
 }
 
 // Function to scroll to the bottom of the page to load more videos
@@ -25,7 +25,7 @@ async function scrollToBottom(driver) {
     await driver.executeScript(
       "window.scrollTo(0, document.documentElement.scrollHeight);",
     );
-    await driver.sleep(30000); // Wait for the page to load
+    await driver.sleep(60000); // Wait for the page to load
 
     let newHeight = await driver.executeScript(
       "return document.documentElement.scrollHeight",
