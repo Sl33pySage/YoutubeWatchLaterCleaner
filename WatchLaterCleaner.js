@@ -80,19 +80,58 @@ async function removeVideosFromWatchLater(driver) {
     By.css("ytd-playlist-video-renderer"),
   );
 
-  for (let videoelement of videoElements) {
-    let menuButton = await videoElement.findElement(By.css("#menu #button"));
-    await menuButton.click();
-    await driver.sleep(1000); // Wait for the menu to appear
+  for (let videoElement of videoElements) {
+    try {
+      let menuButton = await videoElement.findElement(By.css("#menu #button"));
+      await driver.executeScript(
+        "arguments[0].scrollIntoView({block: 'center'});",
+        menuButton,
+      );
+      await driver.sleep(500);
 
-    let removeButton = await driver.wait(
-      until.elementLocated(
-        By.xpath('//yt-formatted-string[text()="Remove from Watch Later"]'),
-      ),
-      5000,
-    );
-    await removeButton.click();
-    await driver.sleep(1000); // Wait for the video to be removed
+      await driver.wait(until.elementIsVisible(menuButton), 10000);
+      await driver.wait(until.elementIsEnabled(menuButton), 10000);
+
+      try {
+        await menuButton.click();
+      } catch (error) {
+        console.log("Retrying click...");
+        await driver.executeScript("arguments[0].click();", menuButton);
+      }
+
+      //await menuButton.click();
+      await driver.sleep(1000); // Wait for the menu to appear
+
+      let removeButton = await driver.wait(
+        until.elementLocated(
+          By.css(
+            "ytd-menu-service-item-renderer.style-scope:nth-child(3) > tp-yt-paper-item:nth-child(1)",
+          ),
+        ),
+        10000,
+      );
+
+      await driver.executeScript(
+        "arguments[0].scrollIntoView({block: 'center'});",
+        removeButton,
+      );
+      await driver.sleep(500);
+
+      await driver.wait(until.elementIsVisible(removeButton), 10000);
+      await driver.wait(until.elementIsEnabled(removeButton), 10000);
+
+      try {
+        await removeButton.click();
+      } catch (error) {
+        console.log("Retrying click...");
+        await driver.executeScript("arguments[0].click();", removeButton);
+      }
+
+      // await removeButton.click();
+      await driver.sleep(1000); // Wait for the video to be removed
+    } catch (error) {
+      console.error("Error removing video:", error);
+    }
   }
 }
 
